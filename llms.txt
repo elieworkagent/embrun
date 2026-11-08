@@ -1,0 +1,36 @@
+# embrun.store
+
+> Préparation à l'examen civique français 2026 (naturalisation) : les 259 questions officielles,
+> corrigées et expliquées, en version audio (2 h 49), en PDF de 72 pages avec 5 examens blancs,
+> et en application d'entraînement hors ligne (40 questions, 45 minutes, seuil 32/40).
+> Les questions sont publiques (Licence Ouverte 2.0) ; ce qui est vendu, c'est le temps :
+> audio, examens blancs chronométrés, application hors ligne.
+
+Le test gratuit de 40 questions est le point d'entrée : https://embrun.store/entrainement.html
+Langue : français. Site statique, sans compte, sans cookie publicitaire.
+
+## Questions officielles par thème
+- [Thème 1 — Principes et valeurs de la République (38 questions)](https://embrun.store/fr/q/1-principes-et-valeurs-de-la-republique/)
+- [Thème 2 — Système institutionnel et politique (57 questions)](https://embrun.store/fr/q/2-systeme-institutionnel-et-politique/)
+- [Thème 3 — Droits et devoirs (37 questions)](https://embrun.store/fr/q/3-droits-et-devoirs/)
+- [Thème 4 — Histoire, géographie et culture (83 questions)](https://embrun.store/fr/q/4-histoire-geographie-et-culture/)
+- [Thème 5 — Vivre dans la société française (44 questions)](https://embrun.store/fr/q/5-vivre-dans-la-societe-francaise/)
+
+## Révision
+- [Les 259 questions, corrigées](https://embrun.store/fr/questions/)
+- [Réviser en écoutant (audio 2 h 49)](https://embrun.store/fr/audio/)
+- [Tarifs et contenu du pack](https://embrun.store/prix/)
+
+## Guides
+- [Comment se passe l'examen civique](https://embrun.store/blog/comment-se-passe-examen-civique/)
+- [Délai de résultat](https://embrun.store/blog/resultat-examen-civique-delai/)
+- [Échouer : que faire](https://embrun.store/blog/echouer-examen-civique-que-faire/)
+- [Les 12 mises en situation](https://embrun.store/blog/12-mises-en-situation/)
+
+## English (US civics)
+- [US civics test 2025 — 128 questions practice](https://embrun.store/us/)
+- [2025 civics test — full question bank](https://embrun.store/civics-128/)
+
+## Optional
+- [Sitemap](https://embrun.store/sitemap.xml)
+- [Mentions et vie privée](https://embrun.store/privacy.html)

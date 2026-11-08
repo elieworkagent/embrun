@@ -1,22 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://embrun.store/</loc></url>
-<url><loc>https://embrun.store/fr/</loc></url>
-<url><loc>https://embrun.store/prix/</loc></url>
-<url><loc>https://embrun.store/entrainement.html</loc></url>
-<url><loc>https://embrun.store/fr/q/</loc></url>
-<url><loc>https://embrun.store/fr/q/1-principes-et-valeurs-de-la-republique/</loc></url>
-<url><loc>https://embrun.store/fr/q/2-systeme-institutionnel-et-politique/</loc></url>
-<url><loc>https://embrun.store/fr/q/4-histoire-geographie-et-culture/</loc></url>
-<url><loc>https://embrun.store/fr/q/5-vivre-dans-la-societe-francaise/</loc></url>
-<url><loc>https://embrun.store/fr/q/3-droits-et-devoirs/</loc></url>
-<url><loc>https://embrun.store/privacy.html</loc></url>
-<url><loc>https://embrun.store/terms.html</loc></url>
-<url><loc>https://embrun.store/blog/</loc></url>
-<url><loc>https://embrun.store/blog/comment-se-passe-examen-civique/</loc></url>
-<url><loc>https://embrun.store/blog/resultat-examen-civique-delai/</loc></url>
-<url><loc>https://embrun.store/blog/echouer-examen-civique-que-faire/</loc></url>
-<url><loc>https://embrun.store/blog/12-mises-en-situation/</loc></url>
-<url><loc>https://embrun.store/fr/questions/</loc><lastmod>2026-11-06</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-<url><loc>https://embrun.store/fr/audio/</loc><lastmod>2026-11-06</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://embrun.store/</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://embrun.store/fr/</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://embrun.store/prix/</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://embrun.store/entrainement.html</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://embrun.store/fr/q/</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://embrun.store/fr/q/1-principes-et-valeurs-de-la-republique/</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://embrun.store/fr/q/2-systeme-institutionnel-et-politique/</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://embrun.store/fr/q/3-droits-et-devoirs/</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://embrun.store/fr/q/4-histoire-geographie-et-culture/</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://embrun.store/fr/q/5-vivre-dans-la-societe-francaise/</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://embrun.store/fr/questions/</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://embrun.store/fr/audio/</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://embrun.store/blog/</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://embrun.store/blog/comment-se-passe-examen-civique/</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://embrun.store/blog/resultat-examen-civique-delai/</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://embrun.store/blog/echouer-examen-civique-que-faire/</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://embrun.store/blog/12-mises-en-situation/</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://embrun.store/privacy.html</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://embrun.store/terms.html</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://embrun.store/us/</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://embrun.store/us/practice-test/</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://embrun.store/us/passing-score/</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://embrun.store/us/study-plan/</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://embrun.store/us/65-20/</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://embrun.store/us/questions/</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://embrun.store/us/audio/</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://embrun.store/civics-128/</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://embrun.store/civics-128/practice-test/</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://embrun.store/civics-128/passing-score/</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://embrun.store/civics-128/study-plan/</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://embrun.store/civics-128/65-20/</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://embrun.store/civics-128/questions/</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://embrun.store/civics-128/audio/</loc><lastmod>2026-11-09</lastmod></url>
 </urlset>
