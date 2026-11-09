@@ -6,13 +6,19 @@
 */
 "use strict";
 
-const VERSION = "embrun-v1";
+const VERSION = "embrun-v2";
 const PAGE = "/entrainement.html";
 const PRECACHE = [PAGE, "/assets/icon-192.png"];
 const CACHE_PREFIX = "embrun-";
 
 function isAudienceHit(url) {
-  return url.indexOf("8443/hit") !== -1;
+  return url.indexOf("/hit") !== -1;
+}
+
+/* Base publique de mesure : jamais en cache, sinon un changement de tunnel resterait
+   collé chez les visiteurs qui ont installé l'application. */
+function isVolatile(url) {
+  return url.indexOf("/assets/emb_base.js") !== -1;
 }
 
 function isCacheable(request, response) {
@@ -56,6 +62,7 @@ self.addEventListener("fetch", function (event) {
   const request = event.request;
   if (request.method !== "GET") return;
   if (isAudienceHit(request.url)) return;
+  if (isVolatile(request.url)) return;
 
   if (request.mode === "navigate") {
     event.respondWith(
