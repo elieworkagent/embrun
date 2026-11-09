@@ -311,6 +311,16 @@ details[open] summary{margin-bottom:8px}
 .packcta-2{color:var(--blue);font-weight:600;font-size:.92rem;text-decoration:none;border-bottom:1px solid transparent}
 .packcta-2:hover{border-bottom-color:var(--blue)}
 @media(max-width:520px){.packcta{padding:15px 16px}.packcta-l .btn{width:100%;text-align:center}}
+/* aimant email : sous le pack, avant le corrigé détaillé */
+.emailcap{margin:24px 0 28px;border:1px solid var(--rule);border-left:3px solid var(--ink3);border-radius:10px;padding:18px 20px;background:#fbfaf7}
+.emailcap h3{margin:0 0 8px;font-size:1.05rem}
+.emailcap p{margin:0 0 12px;color:var(--ink3);line-height:1.6}
+.emailcap form{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.emailcap input[type=email]{flex:1 1 240px;min-width:0;padding:11px 13px;border:1px solid var(--rule);border-radius:8px;font:inherit;font-size:.95rem;background:#fff;color:var(--ink)}
+.emailcap input[type=email]:focus{outline:2px solid var(--blue);outline-offset:1px}
+.emailcap .note{margin:10px 0 0;font-size:.84rem;color:var(--ink3)}
+.emailcap .note.err{color:#a02a1f}
+@media(max-width:520px){.emailcap{padding:15px 16px}.emailcap form .btn{width:100%;text-align:center}}
 </style>
 <link rel="manifest" href="/manifest.webmanifest">
 <meta name="theme-color" content="#0a1a2f">
@@ -769,6 +779,17 @@ function endRevision(qs, theme, score, marks) {
       </div>
     </div>
 
+    <div class="emailcap">
+      <h3>Les 259 questions corrigées, en PDF</h3>
+      <p>Le PDF des 259 questions officielles avec leurs réponses, envoyé par email. Gratuit, une adresse
+      suffit : pas de revente, aucun envoi en dehors de ce message.</p>
+      <form id="freeform" novalidate>
+        <input id="freeemail" type="email" name="email" placeholder="votre@adresse.fr" autocomplete="email" required aria-label="Adresse email">
+        <button class="btn" type="submit" id="freebtn">Recevoir le PDF</button>
+      </form>
+      <p class="note" id="freemsg" role="status" aria-live="polite"></p>
+    </div>
+
     <h2>Questions à revoir</h2>
     ${qs.map((q, k) => marks[k] === 0 ? `<div class="review">
       <div class="tag" style="font:600 .74rem/1 var(--mono);color:var(--ink3)">Question ${k + 1}</div>
@@ -785,6 +806,7 @@ function endRevision(qs, theme, score, marks) {
       <div class="legend"><span><i class="l-ok"></i>juste</span><span><i class="l-ko"></i>fausse</span></div>
     </div>
   </aside>`;
+  wireFree();
 }
 
 /* ================= EXAMEN ================= */
@@ -1071,6 +1093,59 @@ function trackFin(score, total) {
   } catch (e) {}
 }
 
+
+// Le bloc email n'est présent que sur les écrans de résultat : on le branche après chaque rendu.
+function wireFree() {
+  const f = document.getElementById("freeform");
+  if (f && !f.dataset.wired) { f.addEventListener("submit", freeSubmit); f.dataset.wired = "1"; }
+}
+
+// Aimant email : POST /free (le serveur envoie le PDF) puis mesure de l'événement.
+function trackEmail(src) {
+  try {
+    const body = JSON.stringify({ p: "/entrainement", e: "email", s: src || "", m: "pdf", c: "" });
+    const u = (window.EMB_BASE || "https://openclaw-vm.tail5af44b.ts.net:8443") + "/hit";
+    if (navigator.sendBeacon && navigator.sendBeacon(u, new Blob([body], { type: "text/plain;charset=UTF-8" }))) return;
+    fetch(u, { method: "POST", mode: "no-cors", body }).catch(() => {});
+  } catch (e) {}
+}
+
+async function freeSubmit(ev) {
+  ev.preventDefault();
+  const inp = document.getElementById("freeemail");
+  const btn = document.getElementById("freebtn");
+  const msg = document.getElementById("freemsg");
+  if (!inp || !btn || !msg) return false;
+  const email = (inp.value || "").trim();
+  msg.className = "note";
+  if (!/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(email)) {
+    msg.className = "note err";
+    msg.textContent = "Cette adresse email ne semble pas valide.";
+    inp.focus();
+    return false;
+  }
+  let src = "";
+  try { const st = JSON.parse(localStorage.getItem("embrun_src") || "{}"); src = (st && st.s) || ""; } catch (e) { src = ""; }
+  btn.disabled = true;
+  msg.textContent = "Envoi en cours…";
+  try {
+    const r = await fetch((window.EMB_BASE || "https://openclaw-vm.tail5af44b.ts.net:8443") + "/free", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, s: src })
+    });
+    if (!r.ok && r.status !== 0) throw new Error("HTTP " + r.status);
+    msg.textContent = "C’est envoyé à " + email + ". Si rien n’arrive sous deux minutes, regardez dans les spams.";
+    btn.textContent = "Envoyé";
+    trackEmail(src);
+  } catch (e) {
+    msg.className = "note err";
+    msg.textContent = "L’envoi a échoué. Réessayez dans un instant.";
+    btn.disabled = false;
+  }
+  return false;
+}
+
 function results(qs, idx, score, wrong, used) {
   const total = qs.length;
   trackFin(score, total);
@@ -1101,6 +1176,17 @@ function results(qs, idx, score, wrong, used) {
     </div>
 
 
+    <div class="emailcap">
+      <h3>Les 259 questions corrigées, en PDF</h3>
+      <p>Le PDF des 259 questions officielles avec leurs réponses, envoyé par email. Gratuit, une adresse
+      suffit : pas de revente, aucun envoi en dehors de ce message.</p>
+      <form id="freeform" novalidate>
+        <input id="freeemail" type="email" name="email" placeholder="votre@adresse.fr" autocomplete="email" required aria-label="Adresse email">
+        <button class="btn" type="submit" id="freebtn">Recevoir le PDF</button>
+      </form>
+      <p class="note" id="freemsg" role="status" aria-live="polite"></p>
+    </div>
+
     <h2>À revoir (${wrong.length})</h2>
     ${wrong.map(w => `<div class="review">
       <div class="tag" style="font:600 .74rem/1 var(--mono);color:var(--ink3)">Question ${w.k + 1}</div>
@@ -1125,6 +1211,7 @@ function results(qs, idx, score, wrong, used) {
       <div class="count"><b>${score}</b> justes · <b>${wrong.length}</b> à revoir</div>
     </div>
   </aside>`;
+  wireFree();
 }
 
 // lien d'évitement « Aller au contenu » : le contenu reçoit le focus ; au Tab suivant, on passe
