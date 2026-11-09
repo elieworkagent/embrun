@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="fr">
 <head>
+<script src="/assets/emb_base.js"></script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#ffffff">
@@ -1059,7 +1060,7 @@ function trackFin(score, total) {
     if (s) { st = { s, m, c }; try { localStorage.setItem(K, JSON.stringify(st)); } catch (e) {} }
     const body = JSON.stringify({ p: "/entrainement", e: "fin", v: Math.round(score / total * 40 * 100) / 100,
       s: st.s || "", m: st.m || "", c: st.c || "" });
-    const u = "https://openclaw-vm.tail5af44b.ts.net:8443/hit";
+    const u = (window.EMB_BASE||"https://openclaw-vm.tail5af44b.ts.net:8443")+"/hit";
     if (navigator.sendBeacon && navigator.sendBeacon(u, new Blob([body], { type: "text/plain;charset=UTF-8" }))) return;
     try {
       const x = new XMLHttpRequest();

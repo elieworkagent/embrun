@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+<script src="/assets/emb_base.js"></script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Collecte de données web — sites protégés, livraison 24 h | Embrun</title>
@@ -175,7 +176,7 @@ document.getElementById('f').addEventListener('submit', async function(e){
   if(!email || email.indexOf('@')<1){ m.className='ko'; m.textContent='Indiquez une adresse email valide.'; return; }
   m.className=''; m.textContent='';
   try{
-    var r = await fetch('https://openclaw-vm.tail5af44b.ts.net:8443/lead', {
+    var r = await fetch((window.EMB_BASE||"https://openclaw-vm.tail5af44b.ts.net:8443")+"/lead", {
       method:'POST', headers:{'Content-Type':'application/json'},
       body: JSON.stringify({email:email, source:'collecte', note:url+' | '+champs})
     });
@@ -187,7 +188,7 @@ document.getElementById('f').addEventListener('submit', async function(e){
 });
 </script>
 <script>
-(function(){try{var b=new Blob([JSON.stringify({s:'collecte'})],{type:'application/json'});navigator.sendBeacon('https://openclaw-vm.tail5af44b.ts.net:8443/hit',b);}catch(e){}})();
+(function(){try{var b=new Blob([JSON.stringify({s:'collecte'})],{type:'application/json'});navigator.sendBeacon((window.EMB_BASE||"https://openclaw-vm.tail5af44b.ts.net:8443")+"/hit",b);}catch(e){}})();
 </script>
 </body>
 </html>

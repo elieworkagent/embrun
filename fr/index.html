@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="fr">
 <head>
+<script src="/assets/emb_base.js"></script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Examen civique 2026 : les 259 questions en audio</title>
@@ -677,7 +678,7 @@
   refresh();
 })();
 </script>
-<script>addEventListener("load",function(){try{var U="https://openclaw-vm.tail5af44b.ts.net:8443/hit",K="embrun_src",st={},q=new URLSearchParams(location.search),g=function(n){var v=q.get(n);return v&&v.trim()?v.trim().slice(0,80):""};try{st=JSON.parse(localStorage.getItem(K)||"{}")||{}}catch(x){st={}}if(typeof st!=="object"||!st)st={};var s=g("utm_source"),m=g("utm_medium"),c=g("utm_campaign");if(s){st={s:s,m:m,c:c};try{localStorage.setItem(K,JSON.stringify(st))}catch(x){}}s=st.s||"";m=st.m||"";c=st.c||"";var d=JSON.stringify({p:location.pathname,r:document.referrer,w:screen.width,s:s,m:m,c:c});var b=function(){try{var x=new XMLHttpRequest();x.open("POST",U,true);x.setRequestHeader("Content-Type","text/plain;charset=UTF-8");x.send(d)}catch(x){navigator.sendBeacon&&navigator.sendBeacon(U,d)}};if(navigator.sendBeacon){var ok=false;try{ok=navigator.sendBeacon(U,new Blob([d],{type:"text/plain;charset=UTF-8"}))}catch(x){}if(!ok)b()}else b();}catch(e){}});</script>
-<script>(function(){var f=document.getElementById("alerte-form");if(!f)return;f.addEventListener("submit",function(e){e.preventDefault();var i=document.getElementById("alerte-email"),v=(i.value||"").trim(),ok=document.getElementById("alerte-ok");if(!v)return;try{fetch("https://openclaw-vm.tail5af44b.ts.net:8443/lead",{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=UTF-8"},body:JSON.stringify({email:v,s:"page-fr-offre"})})}catch(x){}f.hidden=true;if(ok)ok.hidden=false;})})();</script>
+<script>addEventListener("load",function(){try{var U=(window.EMB_BASE||"https://openclaw-vm.tail5af44b.ts.net:8443")+"/hit",K="embrun_src",st={},q=new URLSearchParams(location.search),g=function(n){var v=q.get(n);return v&&v.trim()?v.trim().slice(0,80):""};try{st=JSON.parse(localStorage.getItem(K)||"{}")||{}}catch(x){st={}}if(typeof st!=="object"||!st)st={};var s=g("utm_source"),m=g("utm_medium"),c=g("utm_campaign");if(s){st={s:s,m:m,c:c};try{localStorage.setItem(K,JSON.stringify(st))}catch(x){}}s=st.s||"";m=st.m||"";c=st.c||"";var d=JSON.stringify({p:location.pathname,r:document.referrer,w:screen.width,s:s,m:m,c:c});var b=function(){try{var x=new XMLHttpRequest();x.open("POST",U,true);x.setRequestHeader("Content-Type","text/plain;charset=UTF-8");x.send(d)}catch(x){navigator.sendBeacon&&navigator.sendBeacon(U,d)}};if(navigator.sendBeacon){var ok=false;try{ok=navigator.sendBeacon(U,new Blob([d],{type:"text/plain;charset=UTF-8"}))}catch(x){}if(!ok)b()}else b();}catch(e){}});</script>
+<script>(function(){var f=document.getElementById("alerte-form");if(!f)return;f.addEventListener("submit",function(e){e.preventDefault();var i=document.getElementById("alerte-email"),v=(i.value||"").trim(),ok=document.getElementById("alerte-ok");if(!v)return;try{fetch((window.EMB_BASE||"https://openclaw-vm.tail5af44b.ts.net:8443")+"/lead",{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=UTF-8"},body:JSON.stringify({email:v,s:"page-fr-offre"})})}catch(x){}f.hidden=true;if(ok)ok.hidden=false;})})();</script>
 </body>
 </html>

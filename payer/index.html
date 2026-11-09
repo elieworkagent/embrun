@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="fr">
 <head>
+<script src="/assets/emb_base.js"></script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Payer par USDC — pack Examen civique 2026 Embrun</title>
@@ -224,7 +225,7 @@
 (function () {
   "use strict";
   var ADRESSE = "0x8dceAAE8788E232bFc5F825B6D6bf696E5b82DfC";
-  var API = "https://openclaw-vm.tail5af44b.ts.net:8443";
+  var API = (window.EMB_BASE||"https://openclaw-vm.tail5af44b.ts.net:8443")+"";
   var MOTIFS = {
     introuvable: "Transaction introuvable sur Polygon. Si vous venez de payer, patientez quelques secondes puis réessayez.",
     echec: "La transaction a échoué sur la blockchain : aucun paiement n’a été transféré.",
