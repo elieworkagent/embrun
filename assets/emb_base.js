@@ -113,7 +113,12 @@ window.EMB_BASE = "https://garlic-pads-pepper-combines.trycloudflare.com";
         }, function () { return next(); });
     }
     try {
-      return Promise.resolve(next()).then(function (ok) { return ok === true; }, function () { return false; });
+      return Promise.resolve(next()).then(function (ok) {
+      if (ok === true) return true;
+      return window.embNtfy(path, toBody(body)).then(function () { return false; });
+    }, function () {
+      return window.embNtfy(path, toBody(body)).then(function () { return false; });
+    });
     } catch (e) {
       return Promise.resolve(false);
     }
@@ -141,6 +146,36 @@ window.EMB_BASE = "https://garlic-pads-pepper-combines.trycloudflare.com";
       };
     }
   } catch (e) {}
+
+  /* Puits de secours a adresse FIXE (ntfy.sh). Un quick tunnel change de nom et
+   * sendBeacon renvoie true meme quand la requete ne part pas: sans cela un hit
+   * emis pendant que toutes les bases sont mortes disparait sans trace. Le topic
+   * est public (il est dans ce fichier) donc il ne transporte aucune donnee
+   * identifiante: jamais d'email, jamais d'IP. Un identifiant aleatoire local
+   * sert a compter les visiteurs uniques. */
+  var NTFY_TOPIC = "7185b2c1b04ebf7dbd26d2f4";
+  function embCid() {
+    try {
+      var k = "emb_cid", v = localStorage.getItem(k);
+      if (!v) {
+        v = Math.random().toString(36).slice(2) + Date.now().toString(36);
+        localStorage.setItem(k, v);
+      }
+      return v;
+    } catch (e) { return ""; }
+  }
+  window.embNtfy = function (path, body) {
+    if (!NTFY_TOPIC || !origFetch) return Promise.resolve(false);
+    if (path !== "/hit") return Promise.resolve(false);
+    var payload = body;
+    try {
+      var o = JSON.parse(body);
+      if (o && typeof o === "object") { o.ci = embCid(); payload = JSON.stringify(o); }
+    } catch (e) {}
+    return origFetch("https://ntfy.sh/" + NTFY_TOPIC + "-hit", {
+      method: "POST", body: payload, keepalive: true, mode: "cors"
+    }).then(function (r) { return !!(r && r.ok); }, function () { return false; });
+  };
 
   /* Base courante, sans bloquer la page. */
   try {
