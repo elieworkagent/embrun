@@ -5,7 +5,8 @@
  * Script classique, autonome : Git Pages sert ce fichier avec max-age=14400, donc
  * la base codée ici peut être périmée jusqu'à 4 h. emb_base.json (no-store) donne
  * la base courante ; embCandidates() ordonne les bases à essayer, embPost() fait
- * le POST sur la première qui répond, navigator.sendBeacon est ré-aiguillé dessus. */
+ * le POST sur la première qui répond, navigator.sendBeacon est ré-aiguillé dessus et
+ * fetch(EMB_BASE + "/chemin") bascule sur la première base vivante. */
 window.EMB_BASE = "https://garlic-pads-pepper-combines.trycloudflare.com";
 (function () {
   var NS = "emb_base_last";
@@ -28,6 +29,68 @@ window.EMB_BASE = "https://garlic-pads-pepper-combines.trycloudflare.com";
     }
     return out;
   };
+
+  /* fetch d'origine : capturé ici, avant tout autre override. */
+  var origFetch = (typeof window.fetch === "function") ? window.fetch : null;
+
+  /* Une page cache jusqu'à 4 h un emb_base.js périmé : ses fetch(EMB_BASE + "/lead"
+   * ou "/free") partiraient vers un hôte mort. On réécrit donc ces URL vers la
+   * première base candidate qui répond (même chemin, mêmes options). Tout ce qui
+   * n'est pas une URL d'une base candidate part intact vers le fetch d'origine. */
+  function doFetch(u, o) {
+    return origFetch ? origFetch.call(window, u, o) : Promise.reject(new Error("fetch absent"));
+  }
+
+  function baseOf(s, b) {
+    return s === b ? "" : (s.indexOf(b + "/") === 0 ? s.slice(b.length) : null);
+  }
+
+  function baseIndex(bases, key) {
+    var def = bases.length;
+    for (var j = 0; j < bases.length; j++) {
+      if (bases[j] === key) return j;
+      if (bases[j] === clean(window.EMB_BASE)) def = j;
+    }
+    return def;
+  }
+
+  function tryBases(bases, i, url, opts, lastErr) {
+    if (i >= bases.length) {
+      if (lastErr) throw lastErr;
+      return doFetch(url, opts);
+    }
+    var b = bases[i], u = b + url;
+    return doFetch(u, opts).then(function (r) {
+      if (r && (r.ok || r.status === 204)) { lsSet(b); return r; }
+      return tryBases(bases, i + 1, url, opts, lastErr);
+    }, function (err) {
+      lastErr = err;
+      return tryBases(bases, i + 1, url, opts, lastErr);
+    });
+  }
+
+  try {
+    if (origFetch) {
+      window.fetch = function (input, init) {
+        try {
+          var s = (typeof input === "string") ? input
+                : (typeof URL !== "undefined" && input instanceof URL) ? input.href : "";
+          if (s) {
+            var bases = window.embCandidates();
+            for (var k = 0; k < bases.length; k++) {
+              var rest = baseOf(s, bases[k]);
+              if (rest === null) continue;
+              var ordered = bases.slice();
+              ordered.splice(k, 1);
+              ordered.splice(baseIndex(bases, bases[k]), 0, bases[k]);
+              return tryBases(ordered, 0, rest, init, null);
+            }
+          }
+        } catch (e) {}
+        return origFetch.apply(this, arguments);
+      };
+    }
+  } catch (e) {}
 
   function toBody(data) {
     if (data === undefined || data === null) return "";
