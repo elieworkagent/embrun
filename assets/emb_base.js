@@ -7,7 +7,7 @@
  * la base courante ; embCandidates() ordonne les bases à essayer, embPost() fait
  * le POST sur la première qui répond, navigator.sendBeacon est ré-aiguillé dessus et
  * fetch(EMB_BASE + "/chemin") bascule sur la première base vivante. */
-window.EMB_BASE = "https://ltd-former-airlines-kirk.trycloudflare.com";
+window.EMB_BASE = "https://retirement-along-nine-bristol.trycloudflare.com";
 (function () {
   var NS = "emb_base_last";
 
