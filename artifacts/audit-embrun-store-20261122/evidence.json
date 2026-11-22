@@ -1,0 +1,246 @@
+{
+  "outil": "surface_audit.py",
+  "version_outil": "1.0",
+  "timestamp_utc": "2026-11-22T01:02:00Z",
+  "url_demandee": "https://embrun.store/",
+  "user_agent": "surface-audit/1.0 (+surface auditor; stdlib urllib; contact via frantic agent)",
+  "parametres": {
+    "timeout_s": 15.0,
+    "max_bytes": 2000000,
+    "verifications_complementaires": true
+  },
+  "injoignable": false,
+  "erreur": null,
+  "requete": {
+    "records": [
+      {
+        "methode": "GET",
+        "url_requete": "https://embrun.store/",
+        "redirections": []
+      },
+      {
+        "methode": "GET",
+        "url_requete": "https://embrun.store/",
+        "url_finale": "https://embrun.store/",
+        "statut": 200,
+        "duree_ms": 205.4,
+        "taille_octets": 8373,
+        "sha256": "a10a5f7b6ee6f56ddee1535883ac1775cb68303b9b892ee09e1cb6810548a75c"
+      }
+    ],
+    "statut": 200,
+    "url_finale": "https://embrun.store/",
+    "duree_ms": 205.4,
+    "taille_octets": 8373,
+    "sha256": "a10a5f7b6ee6f56ddee1535883ac1775cb68303b9b892ee09e1cb6810548a75c",
+    "tronque": false,
+    "demarre_le": "2026-11-22T01:02:00Z"
+  },
+  "url_finale": "https://embrun.store/",
+  "hash_corps": "a10a5f7b6ee6f56ddee1535883ac1775cb68303b9b892ee09e1cb6810548a75c",
+  "en_tetes": {
+    "content-type": "text/html; charset=utf-8",
+    "server": "cloudflare",
+    "cache-control": "max-age=600",
+    "strict-transport-security": null,
+    "content-security-policy": null,
+    "x-frame-options": null,
+    "referrer-policy": null,
+    "permissions-policy": null
+  },
+  "html": {
+    "balise_html_presente": true,
+    "entete_present": true,
+    "lang": "fr",
+    "lang_present": true,
+    "lang_valeur_vide": false,
+    "title_present": true,
+    "title_longueur": 55,
+    "title_texte": "Examen civique 2026 : les 259 questions en audio — 19 €",
+    "meta_description_presente": true,
+    "meta_description_longueur": 189,
+    "meta_description_valeur": "Les 259 questions de l’examen civique 2026, lues avec leur réponse, un PDF de 72 pages et cinq examens blancs corrigés. 19 € une fois, téléchargement immédiat. Test gratuit de 40 questions.",
+    "viewport_presente": true,
+    "viewport_valeur": "width=device-width, initial-scale=1",
+    "h1": 1,
+    "h2": 4,
+    "h3": 0,
+    "premier_titre": "h1",
+    "h2_avant_h1": false,
+    "images": 0,
+    "images_sans_attribut_alt": 0,
+    "liens_a_href": 17,
+    "liens_a_sans_href": 0,
+    "canonical_present": true,
+    "canonical_hrefs": [
+      "https://embrun.store/"
+    ],
+    "canonical_defaut": true,
+    "scripts_inline": 2,
+    "scripts_externes": 1,
+    "formulaires": null,
+    "liens_internes": 15,
+    "liens_externes": 0
+  },
+  "donnees_structurees": {
+    "base_url": "https://embrun.store/",
+    "blocs": 1,
+    "blocs_json_valides": 1,
+    "blocs_json_invalides": 0,
+    "details": [
+      {
+        "index": 1,
+        "longueur": 136,
+        "json_valide": true,
+        "erreur_json": null,
+        "type": "WebSite",
+        "debut": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"WebSite\",\n  \"name\": \"Embrun\",\n  \"url\": \"https://embrun.store/\",\n  \"inLanguage\": \"fr\"\n}"
+      }
+    ],
+    "erreur_parsing": null
+  },
+  "ressources": {
+    "scripts_inline": 2,
+    "scripts_externes": 1,
+    "images": 0,
+    "liens_a_href": 17,
+    "liens_internes": 15,
+    "liens_externes": 0
+  },
+  "design": null,
+  "verifications_complementaires": {
+    "note": "verification complementaire, statut HTTP seulement",
+    "origine": "https://embrun.store",
+    "robots_txt": {
+      "url": "https://embrun.store/robots.txt",
+      "head": 200,
+      "get": null,
+      "erreurs": [],
+      "head_suffisant": true,
+      "statut_retenu": 200,
+      "methode_retenue": "HEAD"
+    },
+    "sitemap_xml": {
+      "url": "https://embrun.store/sitemap.xml",
+      "head": 200,
+      "get": null,
+      "erreurs": [],
+      "head_suffisant": true,
+      "statut_retenu": 200,
+      "methode_retenue": "HEAD"
+    }
+  },
+  "champs_non_mesures": [
+    "html.weight_bd",
+    "html.max_width_px",
+    "design.viewport_css",
+    "design.horiz_overflow",
+    "design.touch_targets",
+    "navigateur.erreurs_js",
+    "navigateur.erreurs_console"
+  ],
+  "contenu_analyse": {
+    "decodage": "utf-8",
+    "erreur_parsing": null,
+    "content_type": "text/html; charset=utf-8",
+    "html": {
+      "balise_html_presente": true,
+      "entete_present": true,
+      "lang": "fr",
+      "lang_present": true,
+      "lang_valeur_vide": false,
+      "title_present": true,
+      "title_longueur": 55,
+      "title_texte": "Examen civique 2026 : les 259 questions en audio — 19 €",
+      "meta_description_presente": true,
+      "meta_description_longueur": 189,
+      "meta_description_valeur": "Les 259 questions de l’examen civique 2026, lues avec leur réponse, un PDF de 72 pages et cinq examens blancs corrigés. 19 € une fois, téléchargement immédiat. Test gratuit de 40 questions.",
+      "viewport_presente": true,
+      "viewport_valeur": "width=device-width, initial-scale=1",
+      "h1": 1,
+      "h2": 4,
+      "h3": 0,
+      "premier_titre": "h1",
+      "h2_avant_h1": false,
+      "images": 0,
+      "images_sans_attribut_alt": 0,
+      "liens_a_href": 17,
+      "liens_a_sans_href": 0,
+      "canonical_present": true,
+      "canonical_hrefs": [
+        "https://embrun.store/"
+      ],
+      "canonical_defaut": true,
+      "scripts_inline": 2,
+      "scripts_externes": 1,
+      "formulaires": null,
+      "liens_internes": 15,
+      "liens_externes": 0
+    },
+    "liens": {
+      "base_url": "https://embrun.store/",
+      "erreur_parsing": null,
+      "liens_total": 17,
+      "internes": 15,
+      "externes": 0,
+      "autres": 1,
+      "non_interprete": 1,
+      "externes_distincts": 0
+    },
+    "donnees_structurees": {
+      "base_url": "https://embrun.store/",
+      "blocs": 1,
+      "blocs_json_valides": 1,
+      "blocs_json_invalides": 0,
+      "details": [
+        {
+          "index": 1,
+          "longueur": 136,
+          "json_valide": true,
+          "erreur_json": null,
+          "type": "WebSite",
+          "debut": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"WebSite\",\n  \"name\": \"Embrun\",\n  \"url\": \"https://embrun.store/\",\n  \"inLanguage\": \"fr\"\n}"
+        }
+      ],
+      "erreur_parsing": null
+    }
+  },
+  "cle_meta_description": "html.meta_description_valeur",
+  "constats": [
+    {
+      "verification": "h1",
+      "ecart": false,
+      "fait": "h1 = 1"
+    },
+    {
+      "verification": "images_sans_alt",
+      "ecart": false,
+      "fait": "images sans attribut alt = 0 / 0"
+    },
+    {
+      "verification": "jsonld_invalide",
+      "ecart": false,
+      "fait": "JSON-LD invalide = 0 / 1"
+    },
+    {
+      "verification": "hsts",
+      "ecart": true,
+      "fait": "strict-transport-security = null"
+    },
+    {
+      "verification": "meta_description",
+      "ecart": false,
+      "fait": "meta description = Les 259 questions de l’examen civique 2026, lues avec leur réponse, un PDF de 72 pages et cinq examens blancs corrigés. 19 € une fois, téléchargement immédiat. Test gratuit de 40 questions."
+    },
+    {
+      "verification": "viewport",
+      "ecart": false,
+      "fait": "meta viewport = width=device-width, initial-scale=1"
+    },
+    {
+      "verification": "lang",
+      "ecart": false,
+      "fait": "lang de <html> = fr"
+    }
+  ]
+}
